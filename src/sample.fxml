@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="lineSelect" onMouseClicked="#lineState" prefHeight="100.0" prefWidth="63.0">
+               <children>
+                  <Label layoutX="17.0" layoutY="70.0" text="Linia" />
+                  <Line endX="-20.0" endY="-20.0" layoutX="32.0" layoutY="41.0" startX="20.0" startY="20.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="circleSelect" onMouseClicked="#circleState" prefHeight="100.0" prefWidth="63.0">
+               <children>
+                  <Circle fill="#ebebeb00" layoutX="32.0" layoutY="42.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label layoutX="18.0" layoutY="70.0" text="Koło" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="rectSelect" layoutX="73.0" layoutY="10.0" onMouseClicked="#rectState" prefHeight="90.0" prefWidth="67.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="70.0" text="Kwadrat" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="42.0" layoutX="13.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+               </children>
+            </AnchorPane>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <AnchorPane prefHeight="100.0" prefWidth="157.0">
+               <children>
+                  <Label layoutX="6.0" layoutY="6.0" text="Wypełnienie" />
+                  <ColorPicker fx:id="fillColor" layoutX="6.0" layoutY="22.0" />
+                  <Label layoutX="6.0" layoutY="48.0" text="Grubość" />
+                  <Slider fx:id="thickSlider" layoutX="9.0" layoutY="64.0" max="25.0" min="0.5" onMouseClicked="#actuator" />
+                  <Label fx:id="sliderCounter" layoutX="69.0" layoutY="48.0" prefHeight="16.0" prefWidth="44.0" text="0.5" />
+               </children>
+            </AnchorPane>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <AnchorPane prefHeight="90.0" prefWidth="228.0">
+               <children>
+                  <Button fx:id="newButton" layoutX="14.0" layoutY="37.0" mnemonicParsing="false" text="Nowy" />
+                  <Button fx:id="saveButton" layoutX="76.0" layoutY="37.0" mnemonicParsing="false" text="Zapisz" />
+                  <Button fx:id="readButton" layoutX="144.0" layoutY="37.0" mnemonicParsing="false" text="Wczytaj" />
+                  <Label layoutX="14.0" layoutY="14.0" text="Opcje" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <Canvas fx:id="ground" height="1000.0" width="1000.0" />
+   </children>
+</VBox>
