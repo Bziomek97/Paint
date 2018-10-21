@@ -15,7 +15,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="104.0" prefWidth="600.0">
          <children>
             <AnchorPane fx:id="lineSelect" onMouseClicked="#lineState" prefHeight="100.0" prefWidth="63.0">
                <children>
@@ -57,6 +57,6 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" />
-      <Canvas fx:id="ground" height="1000.0" width="1000.0" />
+      <Canvas fx:id="ground" height="992.0" width="1000.0" />
    </children>
 </VBox>

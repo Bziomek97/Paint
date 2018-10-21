@@ -1,5 +1,6 @@
 package Classes;
 
 public abstract class Shape {
-    public abstract void color();
+
+    public abstract void color(String color);
 }

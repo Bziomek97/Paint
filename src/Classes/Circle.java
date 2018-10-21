@@ -4,6 +4,7 @@ public class Circle extends Shape2D {
 
     private Point center;
     private double radius;
+    private String color;
 
     public Circle(Point center, double radius){
         this.center=center;
@@ -12,16 +13,16 @@ public class Circle extends Shape2D {
 
     @Override
     public double perimeter() {
-        return 0;
+        return 2*Math.PI*this.radius;
     }
 
     @Override
     public double area() {
-        return 0;
+        return Math.PI*Math.pow(this.radius,2);
     }
 
     @Override
-    public void color() {
-
+    public void color(String color) {
+        this.color=color;
     }
 }

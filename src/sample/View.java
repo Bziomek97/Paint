@@ -87,7 +87,7 @@ public class View {
                 double x,y;
                 x=event.getX();
                 y=event.getY();
-                model.createShape(tmpX,tmpY,x,y);
+                model.createShape(tmpX,tmpY,x,y, String.valueOf(fillColor.getValue()),thickSlider.getValue());
             }
         });
     }

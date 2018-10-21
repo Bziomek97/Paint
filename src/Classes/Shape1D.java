@@ -1,6 +1,6 @@
 package Classes;
 
 public abstract class Shape1D extends Shape{
-        public abstract void lenght();
-        public abstract void thickness();
+        public abstract double lenght();
+        public abstract void thickness(double thickness);
 }

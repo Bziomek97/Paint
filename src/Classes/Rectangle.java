@@ -4,6 +4,7 @@ public class Rectangle extends Shape2D {
 
     private Point point;
     private double width, heigth;
+    private String color;
 
     public Rectangle(Point point, double width, double heigth) {
         this.heigth = heigth;
@@ -13,17 +14,17 @@ public class Rectangle extends Shape2D {
 
     @Override
     public double perimeter() {
-        return 0;
+        return 2*(width+heigth);
     }
 
     @Override
     public double area() {
-        return 0;
+        return width*heigth;
     }
 
     @Override
-    public void color() {
-
+    public void color(String color) {
+        this.color=color;
     }
 
 }
