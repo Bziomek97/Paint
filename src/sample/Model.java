@@ -38,5 +38,8 @@ public class Model {
         }
     }
 
+    public void clean(){
+        rep.clean();
+    }
 
 }

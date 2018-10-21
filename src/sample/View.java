@@ -64,6 +64,12 @@ public class View {
         sliderCounter.setText(String.valueOf(thickSlider.getValue()));
     }
 
+    @FXML
+    public void clean(){
+        model.clean();
+        gc.clearRect(0,0,10000,10000);
+    }
+
     public void startDrag(){
         ground.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override

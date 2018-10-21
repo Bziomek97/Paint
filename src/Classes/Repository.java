@@ -13,6 +13,10 @@ public class Repository {
         shapes.add(item);
     }
 
+    public void clean(){
+        shapes.clear();
+    }
+
     public ArrayList<Shape> getAll(){
         return null;
     }
