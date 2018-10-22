@@ -1,6 +1,6 @@
 package MVC;
 
-import Classes.RepoParse.Repository;
+import Parse.Repository;
 import Shapes.Abstract_classes.Shape;
 import Shapes.Circle;
 import Shapes.Line;

@@ -1,4 +1,4 @@
-package Classes.RepoParse;
+package Parse;
 
 import Shapes.Abstract_classes.Shape;
 
@@ -12,6 +12,7 @@ public class Repository {
     }
 
     public void addItem(Shape item){
+        System.out.println(item.getClass().getSimpleName());
         shapes.add(item);
     }
 
