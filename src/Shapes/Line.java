@@ -1,4 +1,6 @@
-package Classes;
+package Shapes;
+
+import Shapes.Abstract_classes.Shape1D;
 
 public class Line extends Shape1D {
 

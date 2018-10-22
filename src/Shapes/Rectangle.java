@@ -1,4 +1,6 @@
-package Classes;
+package Shapes;
+
+import Shapes.Abstract_classes.Shape2D;
 
 public class Rectangle extends Shape2D {
 

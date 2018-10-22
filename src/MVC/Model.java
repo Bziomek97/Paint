@@ -1,6 +1,11 @@
-package sample;
+package MVC;
 
-import Classes.*;
+import Classes.RepoParse.Repository;
+import Shapes.Abstract_classes.Shape;
+import Shapes.Circle;
+import Shapes.Line;
+import Shapes.Point;
+import Shapes.Rectangle;
 
 public class Model {
 

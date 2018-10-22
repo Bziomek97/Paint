@@ -1,4 +1,4 @@
-package Classes;
+package Shapes.Abstract_classes;
 
 public abstract class Shape1D extends Shape{
         public abstract double lenght();
