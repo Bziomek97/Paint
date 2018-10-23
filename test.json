@@ -1,0 +1,11 @@
+[ {
+  "@type" : "Shapes.Rectangle",
+  "point" : {
+    "class" : ".Point",
+    "x" : 278.0,
+    "y" : 109.0
+  },
+  "width" : 226.0,
+  "color" : "0xffffffff",
+  "heigth" : 161.0
+} ]

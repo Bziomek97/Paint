@@ -1,6 +1,7 @@
 package MVC;
 
-import Classes.RepoParse.Repository;
+import Parse.ParseJSON;
+import Parse.Repository;
 import Shapes.Abstract_classes.Shape;
 import Shapes.Circle;
 import Shapes.Line;
@@ -49,6 +50,35 @@ public class Model {
 
     public void clean(){
         rep.clean();
+    }
+
+    public void saving(String file){
+        ParseJSON parse = new ParseJSON(file);
+        parse.parseTo(rep.getAll());
+    }
+
+    public void loading(String file){
+        ParseJSON parse = new ParseJSON(file);
+        rep.setAll(parse.parseFrom());
+
+        for(Shape i: rep.getAll()){
+            this.drawAll(i);
+        }
+    }
+
+    public void drawAll(Shape item){
+        String classname = item.getClass().getSimpleName();
+        if(classname.equals("Line")){
+            view.redrawLine(((Line) item).getStart().getX(),((Line) item).getStart().getY(),
+                    ((Line) item).getEnd().getX(),((Line) item).getEnd().getY(),((Line) item).getColor());
+        }
+        else if (classname.equals("Circle")) {
+            view.redrawCircle(((Circle) item).getCenter().getX(),((Circle) item).getCenter().getY(),
+                    ((Circle) item).getRadius(),((Circle) item).getColor());
+        }else {
+            view.redrawRectangle(((Rectangle) item).getPoint().getX(),((Rectangle) item).getPoint().getY(),
+                    ((Rectangle) item).getWidth(),((Rectangle) item).getHeigth(),((Rectangle) item).getColor());
+        }
     }
 
 }

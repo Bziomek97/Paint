@@ -9,9 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 
 public class View {
 
+    @FXML private VBox wind;
     @FXML private Canvas ground;
     @FXML private ColorPicker fillColor;
     @FXML private Slider thickSlider;
@@ -66,6 +72,38 @@ public class View {
         gc.clearRect(0,0,10000,10000);
     }
 
+    @FXML
+    public void saveMethod(){
+        FileChooser file = new FileChooser();
+        File selectedFile = null;
+
+        file.setTitle("Choose location To Save ");
+        try {
+            selectedFile=file.showSaveDialog(wind.getScene().getWindow());
+            if(!selectedFile.getName().contains(".json")) {
+                selectedFile = new File(selectedFile.getAbsolutePath() + ".json");
+            }
+            model.saving(selectedFile.getAbsolutePath());
+        } catch(Exception ignored){
+        }
+    }
+
+    @FXML
+    public void loadMethod(){
+        this.clean();
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = null;
+
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON","*.json"));
+        try {
+            selectedFile = fileChooser.showOpenDialog(wind.getScene().getWindow());
+            model.loading(selectedFile.getAbsolutePath());
+        } catch(Exception ignored){
+
+        }
+    }
+
     public void startDrag(){
         ground.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -105,4 +143,21 @@ public class View {
         gc.fillRect(x0,y0,Math.sqrt(Math.pow(x0-x1,2)+Math.pow(y0-y0,2)),
                 Math.sqrt(Math.pow(x1-x1,2)+Math.pow(y0-y1,2)));
     }
+
+    public void redrawCircle(double x0, double y0, double radius, String color){
+        gc.setFill(Paint.valueOf(color));
+        gc.fillOval(x0-radius,y0-radius,2*radius,2*radius);
+    }
+
+    public void redrawRectangle(double x0, double y0, double width, double height, String color){
+        gc.setFill(Paint.valueOf(color));
+        gc.fillRect(x0,y0,width, height);
+    }
+
+    public void redrawLine(double x0,double y0,double x1, double y1, String color){
+        gc.setStroke(Paint.valueOf(color));
+        gc.setLineWidth(thickSlider.getValue());
+        gc.strokeLine(x0,y0,x1,y1);
+    }
+
 }
