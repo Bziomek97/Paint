@@ -1,11 +1,14 @@
 package MVC;
 
+import Parse.ParseJSON;
 import Parse.Repository;
 import Shapes.Abstract_classes.Shape;
 import Shapes.Circle;
 import Shapes.Line;
 import Shapes.Point;
 import Shapes.Rectangle;
+
+import java.util.ArrayList;
 
 public class Model {
 
@@ -49,6 +52,16 @@ public class Model {
 
     public void clean(){
         rep.clean();
+    }
+
+    public void saving(String file){
+        ParseJSON parse = new ParseJSON(file);
+        parse.parseTo(rep.getAll());
+    }
+
+    public void loading(String file){
+        ParseJSON parse = new ParseJSON(file);
+        ArrayList<Shape> tmp = parse.parseFrom();
     }
 
 }

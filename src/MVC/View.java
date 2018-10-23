@@ -9,9 +9,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 
 public class View {
 
+    @FXML private VBox wind;
     @FXML private Canvas ground;
     @FXML private ColorPicker fillColor;
     @FXML private Slider thickSlider;
@@ -64,6 +69,30 @@ public class View {
     public void clean(){
         model.clean();
         gc.clearRect(0,0,10000,10000);
+    }
+
+    @FXML
+    public void saveMethod(){
+        FileChooser file = new FileChooser();
+        File selectedFile = null;
+
+        file.setTitle("Choose location To Save ");
+        file.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON","*.json"));
+        selectedFile=file.showOpenDialog(wind.getScene().getWindow());
+
+        model.saving(selectedFile.getAbsolutePath());
+    }
+
+    @FXML
+    public void loadMethod(){
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = null;
+
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON","*.json"));
+        selectedFile=fileChooser.showOpenDialog(wind.getScene().getWindow());
+
+        model.loading(selectedFile.getAbsolutePath());
     }
 
     public void startDrag(){

@@ -1,8 +1,12 @@
 package Parse;
 
 import Shapes.Abstract_classes.Shape;
-import org.json.JSONObject;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ParseJSON {
@@ -14,37 +18,33 @@ public class ParseJSON {
     }
 
     public ArrayList<Shape> parseFrom(){
-        String tmp;
+        ArrayList<Shape> tmp = null;
 
-        // 1. Plik
-        FileServices file = new FileServices("ok");
-        tmp=file.fromFile();
 
-        // 2. Analiza stringu
-        JSONObject obj = new JSONObject();
+        ObjectMapper objectMapper=new ObjectMapper();
 
-        // 3. Tworzenie repo
-
-        return null;
+        try {
+            objectMapper.enableDefaultTyping();
+            tmp=objectMapper.readValue(new File(file),new TypeReference<ArrayList<Shape>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(tmp);
+        return tmp;
     }
 
     public void parseTo(ArrayList<Shape> data) {
-        JSONObject obj = new JSONObject();
+        ObjectMapper objectMapper=new ObjectMapper();
 
-        for(Shape i: data){
-            if(i.getClass().getSimpleName() == "Line"){
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-            }
-            else if(i.getClass().getSimpleName() == "Circle"){
+        try {
 
-            }
-            else{
+            objectMapper.writerFor(new TypeReference<ArrayList<Shape>>() {}).writeValue(new File("./test.json"), data);
 
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        // 3. Plik
-        FileServices file = new FileServices("ok");
-        //file.toFile(data);
     }
 }

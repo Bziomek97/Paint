@@ -5,23 +5,26 @@ import Shapes.Abstract_classes.Shape;
 import java.util.ArrayList;
 
 public class Repository {
-    private ArrayList<Shape> shapes;
+    private ArrayList<Shape> shape;
 
     public Repository(){
-        shapes=new ArrayList<>();
+        shape =new ArrayList<>();
     }
 
     public void addItem(Shape item){
-        System.out.println(item.getClass().getSimpleName());
-        shapes.add(item);
+        shape.add(item);
     }
 
     public void clean(){
-        shapes.clear();
+        shape.clear();
     }
 
     public ArrayList<Shape> getAll(){
-        return null;
+        return shape;
+    }
+
+    public void setShape(ArrayList<Shape> shape) {
+        this.shape = shape;
     }
 
     public Shape getByCode(){
