@@ -23,6 +23,10 @@ public class Repository {
         return shape;
     }
 
+    public void setAll(ArrayList<Shape> data){
+        this.shape=data;
+    }
+
     public void setShape(ArrayList<Shape> shape) {
         this.shape = shape;
     }

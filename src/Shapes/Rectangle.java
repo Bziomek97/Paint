@@ -12,14 +12,14 @@ public class Rectangle extends Shape2D {
 
     @JsonCreator
     public Rectangle(@JsonProperty("point") Point point,@JsonProperty("width") double width,@JsonProperty("height") double heigth,@JsonProperty("color") String color) {
-        this.heigth = heigth;
+        this.width = width;
         this.point = point;
         this.heigth = heigth;
         this.color = color;
     }
 
     public Rectangle(Point point, double width, double heigth) {
-        this.heigth = heigth;
+        this.width = width;
         this.point = point;
         this.heigth = heigth;
     }
