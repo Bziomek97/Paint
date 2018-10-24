@@ -78,9 +78,11 @@ public class View {
         File selectedFile = null;
 
         file.setTitle("Choose location To Save ");
-        file.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON","*.json"));
         try {
-            selectedFile=file.showOpenDialog(wind.getScene().getWindow());
+            selectedFile=file.showSaveDialog(wind.getScene().getWindow());
+            if(!selectedFile.getName().contains(".json")) {
+                selectedFile = new File(selectedFile.getAbsolutePath() + ".json");
+            }
             model.saving(selectedFile.getAbsolutePath());
         } catch(Exception ignored){
         }

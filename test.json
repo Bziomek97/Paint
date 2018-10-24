@@ -2,20 +2,10 @@
   "@type" : "Shapes.Rectangle",
   "point" : {
     "class" : ".Point",
-    "x" : 131.0,
-    "y" : 107.0
+    "x" : 278.0,
+    "y" : 109.0
   },
-  "width" : 379.0,
-  "color" : "0xccffffff",
-  "heigth" : 204.0
-}, {
-  "@type" : "Shapes.Rectangle",
-  "point" : {
-    "class" : ".Point",
-    "x" : 305.0,
-    "y" : 137.0
-  },
-  "width" : 105.0,
-  "color" : "0xcc3333ff",
-  "heigth" : 80.0
+  "width" : 226.0,
+  "color" : "0xffffffff",
+  "heigth" : 161.0
 } ]

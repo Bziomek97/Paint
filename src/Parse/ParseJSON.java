@@ -29,7 +29,6 @@ public class ParseJSON {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(tmp);
         return tmp;
     }
 
@@ -40,7 +39,7 @@ public class ParseJSON {
 
         try {
 
-            objectMapper.writerFor(new TypeReference<ArrayList<Shape>>() {}).writeValue(new File("./test.json"), data);
+            objectMapper.writerFor(new TypeReference<ArrayList<Shape>>() {}).writeValue(new File(file), data);
 
         } catch (IOException e) {
             e.printStackTrace();
